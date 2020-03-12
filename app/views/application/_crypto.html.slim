@@ -1,0 +1,75 @@
+div.container
+  h1 Crypto
+
+  - flash[:notice]&.each do |msg|
+    div.alert.alert-danger
+      = msg
+
+  h4 Filters
+  div.row
+    = form_for :crypto, method: :get, url: { action: :index } do |f|
+      div.dropdown
+        = label_tag :function, 'Series Over Time', class: 'col-md-4'
+        = select_tag :function, options_for_select(@functions, @selected_function), class: 'dropdown-toggle btn btn-secondary col-md-8'
+
+      div.dropdown
+        = label_tag :symbol, 'Crypto', class: 'col-md-4'
+        = select_tag :symbol, options_for_select(@cryptos.map { |crypto| [crypto.name, crypto.symbol] }, @selected_crypto), class: 'dropdown-toggle btn btn-secondary col-md-8'
+
+      div.dropdown
+        = label_tag :market, 'Market', class: 'col-md-4'
+        = select_tag :market, options_for_select(@markets.map { |market| [market.name, market.symbol] }, @selected_market), class: 'dropdown-toggle btn btn-secondary col-md-8'
+
+      = label_tag :start_date, 'Start Date', class: 'col-md-4'
+      = text_field_tag :start_date, 'Start Date', data: { provide:'datepicker' }, type: :date, class: 'col-md-8'
+
+      = label_tag :end_date, 'End Date', class: 'col-md-4'
+      = text_field_tag :end_date, 'End Date', data: { provide:'datepicker' }, type: :date, class: 'col-md-8'
+
+      div.col-md-4
+        = f.submit 'Filter', class: 'btn btn-secondary'
+
+  br
+
+  h4 Rating
+  div.row
+    div.col-md-12
+      - if @rating.empty?
+        div.alert.alert-danger This Crypto has no rating as of yet
+      - else
+        div.col-md-12
+          table.table.table-striped
+            thead
+              th Symbol
+              th Name
+              th FCAS Rating
+              th FCAS Score
+              th Developer Score
+              th Market Maturity Score
+              th Utility Score
+            tbody
+              tr
+                td
+                  | #{@rating.dig('Crypto Rating (FCAS)', '1. symbol')}
+                td
+                  | #{@rating.dig('Crypto Rating (FCAS)', '2. name')}
+                td
+                  | #{@rating.dig('Crypto Rating (FCAS)', '3. fcas rating')}
+                td
+                  | #{@rating.dig('Crypto Rating (FCAS)', '4. fcas score')}
+                td
+                  | #{@rating.dig('Crypto Rating (FCAS)', '5. developer score')}
+                td
+                  | #{@rating.dig('Crypto Rating (FCAS)', '6. market maturity score')}
+                td
+                  | #{@rating.dig('Crypto Rating (FCAS)', '7. utility score')}
+
+  br
+
+  h4 Market Over Time (#{@selected_market} per #{@selected_crypto})
+  div.row
+    div.col-md-12
+      - if @crypto.empty?
+        div.alert.alert-danger No Time Series information on this Crypto
+      - else
+        = line_chart @crypto
