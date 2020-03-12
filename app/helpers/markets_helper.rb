@@ -3,6 +3,7 @@ module MarketsHelper
     market_filters[:function] = params[:function] if params[:function]
     market_filters[:from_symbol] = params[:from_symbol] if params[:from_symbol]
     market_filters[:to_symbol] = params[:to_symbol] if params[:to_symbol]
+    market_filters[:interval] = params[:interval] if params[:interval]
     market_filters
   end
 
@@ -40,7 +41,8 @@ module MarketsHelper
     {
       function: 'FX_MONTHLY',
       from_symbol: 'USD',
-      to_symbol: 'ZAR'
+      to_symbol: 'ZAR',
+      interval: '60min'
     }
   end
 
@@ -53,10 +55,20 @@ module MarketsHelper
     ]
   end
 
+  def intervals
+    [
+      ['60 Minutes', '60min'],
+      ['30 Minutes', '30min'],
+      ['15 Minutes', '15min'],
+      ['5 Minutes', '5min'],
+      ['1 Minute', '1min']
+    ]
+  end
+
   def function_keys
     {
-      'FX_INTRADAY' => 'Time Series FX (Intraday)',
-      'FX_DAILY' => 'Time Series FX (Monthly)',
+      'FX_INTRADAY' => "Time Series FX (#{params[:interval] || '60min'})",
+      'FX_DAILY' => 'Time Series FX (Daily)',
       'FX_WEEKLY' => 'Time Series FX (Weekly)',
       'FX_MONTHLY' => 'Time Series FX (Monthly)'
     }

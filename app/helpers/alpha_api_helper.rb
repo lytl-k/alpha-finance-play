@@ -13,7 +13,7 @@ module AlphaApiHelper
       p uri
       p uri.to_s
 
-      JSON.parse rest_client.execute(method: :get, url: uri.to_s)
+      p JSON.parse rest_client.execute(method: :get, url: uri.to_s)
     rescue StandardError => e
       if e.message == 'Enhance your calm'
         swap_key!

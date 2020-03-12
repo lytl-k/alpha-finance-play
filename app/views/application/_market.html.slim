@@ -5,7 +5,16 @@ div.container
     = form_for :market, method: :get, url: { action: :index } do |f|
       div.dropdown
         = label_tag :function, 'Series Over Time', class: 'col-md-4'
-        = select_tag :function, options_for_select(@functions, @selected_function), class: 'dropdown-toggle btn btn-secondary col-md-8'
+        = select_tag :function, options_for_select(@functions, @selected_function), class: 'dropdown-toggle btn btn-secondary col-md-8', onchange: 'toggleInterval(this)'
+
+      - if @selected_function == 'FX_INTRADAY'
+        div.dropdown id='interval-drop'
+          = label_tag :interval, 'Interval', class: 'col-md-4'
+          = select_tag :interval, options_for_select(@intervals, @selected_interval), class: 'dropdown-toggle btn btn-secondary col-md-8'
+      - else
+        div.dropdown.d-none id='interval-drop'
+          = label_tag :interval, 'Interval', class: 'col-md-4'
+          = select_tag :interval, options_for_select(@intervals, @selected_interval), class: 'dropdown-toggle btn btn-secondary col-md-8'
 
       div.dropdown
         = label_tag :from_symbol, 'Market 1', class: 'col-md-4'

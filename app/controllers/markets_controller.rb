@@ -3,10 +3,13 @@ class MarketsController < ApplicationController
   include MarketsHelper
 
   def index
-    @selected_function = params[:function] || default_filters[:function]
+    p @selected_function = params[:function] || default_filters[:function]
     @selected_from_symbol = params[:from_symbol] || default_filters[:from_symbol]
     @selected_to_symbol = params[:to_symbol] || default_filters[:to_symbol]
+    @selected_interval = params[:interval] || default_filters[:interval]
+
     @functions = functions
+    @intervals = intervals
 
     @markets ||= Market.all
 

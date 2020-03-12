@@ -29,18 +29,4 @@ class CryptosController < ApplicationController
       @crypto = mangle_response(@crypto, params[:function] || 'DIGITAL_CURRENCY_MONTHLY', @selected_market)
     end
   end
-
-  private
-
-  def apply_crypto_filters(crypto_filters)
-    crypto_filters[:function] = params[:function] if params[:function]
-    crypto_filters[:market] = params[:market] if params[:market]
-    crypto_filters[:symbol] = params[:symbol] if params[:symbol]
-    crypto_filters
-  end
-
-  def apply_rating_filters(rating_filters)
-    rating_filters[:symbol] = params[:symbol] if params[:symbol]
-    rating_filters
-  end
 end

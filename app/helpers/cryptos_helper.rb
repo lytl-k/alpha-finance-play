@@ -46,4 +46,16 @@ module CryptosHelper
       'DIGITAL_CURRENCY_MONTHLY' => 'Time Series (Digital Currency Monthly)'
     }
   end
+
+  def apply_crypto_filters(crypto_filters)
+    crypto_filters[:function] = params[:function] if params[:function]
+    crypto_filters[:market] = params[:market] if params[:market]
+    crypto_filters[:symbol] = params[:symbol] if params[:symbol]
+    crypto_filters
+  end
+
+  def apply_rating_filters(rating_filters)
+    rating_filters[:symbol] = params[:symbol] if params[:symbol]
+    rating_filters
+  end
 end
