@@ -1,5 +1,20 @@
-h1 Dashboard
+div.container
+  h1 Dashboard
+  div.row
+    div.card.col-md-4
+      div.card-body.d-flex.flex-column
+        h5.card-title Crypto Stuffs...
+        p.card-text Here you can check the rating of specific Crypto Currencies as well as their market value (and history)
+        = link_to 'Check it out!', 'cryptos/index', class: 'btn btn-secondary mt-auto'
 
-= link_to 'Crypto Stuffs...', 'cryptos/index', class: 'btn btn-secondary'
-= link_to 'Market Stuffs...', 'markets/index', class: 'btn btn-secondary'
-= link_to 'Exchange Rates...', 'exchange_rates/index', class: 'btn btn-secondary'
+    div.card.col-md-4
+      div.card-body.d-flex.flex-column
+        h5.card-title Market Stuffs...
+        p.card-text Here you can check out the market value of different currencies
+        = link_to 'Check it out!', 'markets/index', class: 'btn btn-secondary mt-auto'
+
+    div.card.col-md-4
+      div.card-body.d-flex.flex-column
+        h5.card-title Exchange Rates...
+        p.card-text Check the Exchange Rate of your currency against any other currency here
+        = link_to 'Check it out!', 'exchange_rates/index', class: 'btn btn-secondary mt-auto'

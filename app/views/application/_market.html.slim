@@ -1,5 +1,5 @@
 div.container
-  h1 Markets
+  h1 Currency Markets
   h4 Filters
   div.row
     = form_for :market, method: :get, url: { action: :index } do |f|
@@ -17,11 +17,11 @@ div.container
           = select_tag :interval, options_for_select(@intervals, @selected_interval), class: 'dropdown-toggle btn btn-secondary col-md-8'
 
       div.dropdown
-        = label_tag :from_symbol, 'Market 1', class: 'col-md-4'
+        = label_tag :from_symbol, 'From Currency', class: 'col-md-4'
         = select_tag :from_symbol, options_for_select(@markets.map { |market| [market.name, market.symbol] }, @selected_from_symbol), class: 'dropdown-toggle btn btn-secondary col-md-8'
 
       div.dropdown
-        = label_tag :to_symbol, 'Market 2', class: 'col-md-4'
+        = label_tag :to_symbol, 'To Currency', class: 'col-md-4'
         = select_tag :to_symbol, options_for_select(@markets.map { |market| [market.name, market.symbol] }, @selected_to_symbol), class: 'dropdown-toggle btn btn-secondary col-md-8'
 
       = label_tag :start_date, 'Start Date', class: 'col-md-4'
@@ -35,7 +35,7 @@ div.container
 
   br
 
-  h4 Market Over Time (#{@selected_from_symbol} per #{@selected_to_symbol})
+  h4 Market Over Time (#{@selected_to_symbol} per #{@selected_from_symbol})
   div.row
     div.col-md-12
       - if @market.empty?
