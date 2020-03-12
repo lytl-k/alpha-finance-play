@@ -2,7 +2,7 @@ div.container
   h1 Markets
   h4 Filters
   div.row
-    = form_for :crypto, method: :get, url: { action: :index } do |f|
+    = form_for :market, method: :get, url: { action: :index } do |f|
       div.dropdown
         = label_tag :function, 'Series Over Time', class: 'col-md-4'
         = select_tag :function, options_for_select(@functions, @selected_function), class: 'dropdown-toggle btn btn-secondary col-md-8'
