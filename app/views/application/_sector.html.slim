@@ -1,0 +1,386 @@
+div.container
+  h1 Sector Information
+
+  div.row
+    div.col-md-12
+      - if @sector.empty?
+        div.alert.alert-danger No Time Series information on these Markets
+      - else
+        div.row
+          div.card.col-md-4
+            div.card-body
+              h4.card-title Health Care
+              table.table-striped.table-bordered
+                tr
+                  th Real Time Performance
+                  td #{@sector.dig('Rank A: Real-Time Performance', 'Health Care')}
+                tr
+                  th 1 Day Performance
+                  td #{@sector.dig('Rank B: 1 Day Performance', 'Health Care')}
+                tr
+                  th 5 Day Performance
+                  td #{@sector.dig('Rank C: 5 Day Performance', 'Health Care')}
+                tr
+                  th 1 Month Performance
+                  td #{@sector.dig('Rank D: 1 Month Performance', 'Health Care')}
+                tr
+                  th 3 Month Performance
+                  td #{@sector.dig('Rank E: 3 Month Performance', 'Health Care')}
+                tr
+                  th Year-to-Date Performance
+                  td #{@sector.dig('Rank F: Year-to-Date (YTD) Performance', 'Health Care')}
+                tr
+                  th 1 Year Performance
+                  td #{@sector.dig('Rank G: 1 Year Performance', 'Health Care')}
+                tr
+                  th 3 Year Performance
+                  td #{@sector.dig('Rank H: 3 Year Performance', 'Health Care')}
+                tr
+                  th 5 Year Performance
+                  td #{@sector.dig('Rank I: 5 Year Performance', 'Health Care')}
+                tr
+                  th 10 Year Performance
+                  td #{@sector.dig('Rank J: 10 Year Performance', 'Health Care')}
+          div.card.col-md-4
+            div.card-body
+              h4.card-title Communication Services
+              table.table-striped.table-bordered
+                tr
+                  th Real Time Performance
+                  td #{@sector.dig('Rank A: Real-Time Performance', 'Communication Services')}
+                tr
+                  th 1 Day Performance
+                  td #{@sector.dig('Rank B: 1 Day Performance', 'Communication Services')}
+                tr
+                  th 5 Day Performance
+                  td #{@sector.dig('Rank C: 5 Day Performance', 'Communication Services')}
+                tr
+                  th 1 Month Performance
+                  td #{@sector.dig('Rank D: 1 Month Performance', 'Communication Services')}
+                tr
+                  th 3 Month Performance
+                  td #{@sector.dig('Rank E: 3 Month Performance', 'Communication Services')}
+                tr
+                  th Year-to-Date Performance
+                  td #{@sector.dig('Rank F: Year-to-Date (YTD) Performance', 'Communication Services')}
+                tr
+                  th 1 Year Performance
+                  td #{@sector.dig('Rank G: 1 Year Performance', 'Communication Services')}
+                tr
+                  th 3 Year Performance
+                  td #{@sector.dig('Rank H: 3 Year Performance', 'Communication Services')}
+                tr
+                  th 5 Year Performance
+                  td #{@sector.dig('Rank I: 5 Year Performance', 'Communication Services')}
+                tr
+                  th 10 Year Performance
+                  td #{@sector.dig('Rank J: 10 Year Performance', 'Communication Services')}
+          div.card.col-md-4
+            div.card-body
+              h4.card-title Consumer Staples
+              table.table-striped.table-bordered
+                tr
+                  th Real Time Performance
+                  td #{@sector.dig('Rank A: Real-Time Performance', 'Consumer Staples')}
+                tr
+                  th 1 Day Performance
+                  td #{@sector.dig('Rank B: 1 Day Performance', 'Consumer Staples')}
+                tr
+                  th 5 Day Performance
+                  td #{@sector.dig('Rank C: 5 Day Performance', 'Consumer Staples')}
+                tr
+                  th 1 Month Performance
+                  td #{@sector.dig('Rank D: 1 Month Performance', 'Consumer Staples')}
+                tr
+                  th 3 Month Performance
+                  td #{@sector.dig('Rank E: 3 Month Performance', 'Consumer Staples')}
+                tr
+                  th Year-to-Date Performance
+                  td #{@sector.dig('Rank F: Year-to-Date (YTD) Performance', 'Consumer Staples')}
+                tr
+                  th 1 Year Performance
+                  td #{@sector.dig('Rank G: 1 Year Performance', 'Consumer Staples')}
+                tr
+                  th 3 Year Performance
+                  td #{@sector.dig('Rank H: 3 Year Performance', 'Consumer Staples')}
+                tr
+                  th 5 Year Performance
+                  td #{@sector.dig('Rank I: 5 Year Performance', 'Consumer Staples')}
+                tr
+                  th 10 Year Performance
+                  td #{@sector.dig('Rank J: 10 Year Performance', 'Consumer Staples')}
+        div.row
+          div.card.col-md-4
+            div.card-body
+              h4.card-title Information Technology
+              table.table-striped.table-bordered
+                tr
+                  th Real Time Performance
+                  td #{@sector.dig('Rank A: Real-Time Performance', 'Information Technology')}
+                tr
+                  th 1 Day Performance
+                  td #{@sector.dig('Rank B: 1 Day Performance', 'Information Technology')}
+                tr
+                  th 5 Day Performance
+                  td #{@sector.dig('Rank C: 5 Day Performance', 'Information Technology')}
+                tr
+                  th 1 Month Performance
+                  td #{@sector.dig('Rank D: 1 Month Performance', 'Information Technology')}
+                tr
+                  th 3 Month Performance
+                  td #{@sector.dig('Rank E: 3 Month Performance', 'Information Technology')}
+                tr
+                  th Year-to-Date Performance
+                  td #{@sector.dig('Rank F: Year-to-Date (YTD) Performance', 'Information Technology')}
+                tr
+                  th 1 Year Performance
+                  td #{@sector.dig('Rank G: 1 Year Performance', 'Information Technology')}
+                tr
+                  th 3 Year Performance
+                  td #{@sector.dig('Rank H: 3 Year Performance', 'Information Technology')}
+                tr
+                  th 5 Year Performance
+                  td #{@sector.dig('Rank I: 5 Year Performance', 'Information Technology')}
+                tr
+                  th 10 Year Performance
+                  td #{@sector.dig('Rank J: 10 Year Performance', 'Information Technology')}
+          div.card.col-md-4
+            div.card-body
+              h4.card-title Utilities
+              table.table-striped.table-bordered
+                tr
+                  th Real Time Performance
+                  td #{@sector.dig('Rank A: Real-Time Performance', 'Utilities')}
+                tr
+                  th 1 Day Performance
+                  td #{@sector.dig('Rank B: 1 Day Performance', 'Utilities')}
+                tr
+                  th 5 Day Performance
+                  td #{@sector.dig('Rank C: 5 Day Performance', 'Utilities')}
+                tr
+                  th 1 Month Performance
+                  td #{@sector.dig('Rank D: 1 Month Performance', 'Utilities')}
+                tr
+                  th 3 Month Performance
+                  td #{@sector.dig('Rank E: 3 Month Performance', 'Utilities')}
+                tr
+                  th Year-to-Date Performance
+                  td #{@sector.dig('Rank F: Year-to-Date (YTD) Performance', 'Utilities')}
+                tr
+                  th 1 Year Performance
+                  td #{@sector.dig('Rank G: 1 Year Performance', 'Utilities')}
+                tr
+                  th 3 Year Performance
+                  td #{@sector.dig('Rank H: 3 Year Performance', 'Utilities')}
+                tr
+                  th 5 Year Performance
+                  td #{@sector.dig('Rank I: 5 Year Performance', 'Utilities')}
+                tr
+                  th 10 Year Performance
+                  td #{@sector.dig('Rank J: 10 Year Performance', 'Utilities')}
+          div.card.col-md-4
+            div.card-body
+              h4.card-title Real Estate
+              table.table-striped.table-bordered
+                tr
+                  th Real Time Performance
+                  td #{@sector.dig('Rank A: Real-Time Performance', 'Real Estate')}
+                tr
+                  th 1 Day Performance
+                  td #{@sector.dig('Rank B: 1 Day Performance', 'Real Estate')}
+                tr
+                  th 5 Day Performance
+                  td #{@sector.dig('Rank C: 5 Day Performance', 'Real Estate')}
+                tr
+                  th 1 Month Performance
+                  td #{@sector.dig('Rank D: 1 Month Performance', 'Real Estate')}
+                tr
+                  th 3 Month Performance
+                  td #{@sector.dig('Rank E: 3 Month Performance', 'Real Estate')}
+                tr
+                  th Year-to-Date Performance
+                  td #{@sector.dig('Rank F: Year-to-Date (YTD) Performance', 'Real Estate')}
+                tr
+                  th 1 Year Performance
+                  td #{@sector.dig('Rank G: 1 Year Performance', 'Real Estate')}
+                tr
+                  th 3 Year Performance
+                  td #{@sector.dig('Rank H: 3 Year Performance', 'Real Estate')}
+                tr
+                  th 5 Year Performance
+                  td #{@sector.dig('Rank I: 5 Year Performance', 'Real Estate')}
+                tr
+                  th 10 Year Performance
+                  td #{@sector.dig('Rank J: 10 Year Performance', 'Real Estate')}
+        div.row
+          div.card.col-md-4
+            div.card-body
+              h4.card-title Consumer Discretionary
+              table.table-striped.table-bordered
+                tr
+                  th Real Time Performance
+                  td #{@sector.dig('Rank A: Real-Time Performance', 'Consumer Discretionary')}
+                tr
+                  th 1 Day Performance
+                  td #{@sector.dig('Rank B: 1 Day Performance', 'Consumer Discretionary')}
+                tr
+                  th 5 Day Performance
+                  td #{@sector.dig('Rank C: 5 Day Performance', 'Consumer Discretionary')}
+                tr
+                  th 1 Month Performance
+                  td #{@sector.dig('Rank D: 1 Month Performance', 'Consumer Discretionary')}
+                tr
+                  th 3 Month Performance
+                  td #{@sector.dig('Rank E: 3 Month Performance', 'Consumer Discretionary')}
+                tr
+                  th Year-to-Date Performance
+                  td #{@sector.dig('Rank F: Year-to-Date (YTD) Performance', 'Consumer Discretionary')}
+                tr
+                  th 1 Year Performance
+                  td #{@sector.dig('Rank G: 1 Year Performance', 'Consumer Discretionary')}
+                tr
+                  th 3 Year Performance
+                  td #{@sector.dig('Rank H: 3 Year Performance', 'Consumer Discretionary')}
+                tr
+                  th 5 Year Performance
+                  td #{@sector.dig('Rank I: 5 Year Performance', 'Consumer Discretionary')}
+                tr
+                  th 10 Year Performance
+                  td #{@sector.dig('Rank J: 10 Year Performance', 'Consumer Discretionary')}
+          div.card.col-md-4
+            div.card-body
+              h4.card-title Materials
+              table.table-striped.table-bordered
+                tr
+                  th Real Time Performance
+                  td #{@sector.dig('Rank A: Real-Time Performance', 'Materials')}
+                tr
+                  th 1 Day Performance
+                  td #{@sector.dig('Rank B: 1 Day Performance', 'Materials')}
+                tr
+                  th 5 Day Performance
+                  td #{@sector.dig('Rank C: 5 Day Performance', 'Materials')}
+                tr
+                  th 1 Month Performance
+                  td #{@sector.dig('Rank D: 1 Month Performance', 'Materials')}
+                tr
+                  th 3 Month Performance
+                  td #{@sector.dig('Rank E: 3 Month Performance', 'Materials')}
+                tr
+                  th Year-to-Date Performance
+                  td #{@sector.dig('Rank F: Year-to-Date (YTD) Performance', 'Materials')}
+                tr
+                  th 1 Year Performance
+                  td #{@sector.dig('Rank G: 1 Year Performance', 'Materials')}
+                tr
+                  th 3 Year Performance
+                  td #{@sector.dig('Rank H: 3 Year Performance', 'Materials')}
+                tr
+                  th 5 Year Performance
+                  td #{@sector.dig('Rank I: 5 Year Performance', 'Materials')}
+                tr
+                  th 10 Year Performance
+                  td #{@sector.dig('Rank J: 10 Year Performance', 'Materials')}
+          div.card.col-md-4
+            div.card-body
+              h4.card-title Industrials
+              table.table-striped.table-bordered
+                tr
+                  th Real Time Performance
+                  td #{@sector.dig('Rank A: Real-Time Performance', 'Industrials')}
+                tr
+                  th 1 Day Performance
+                  td #{@sector.dig('Rank B: 1 Day Performance', 'Industrials')}
+                tr
+                  th 5 Day Performance
+                  td #{@sector.dig('Rank C: 5 Day Performance', 'Industrials')}
+                tr
+                  th 1 Month Performance
+                  td #{@sector.dig('Rank D: 1 Month Performance', 'Industrials')}
+                tr
+                  th 3 Month Performance
+                  td #{@sector.dig('Rank E: 3 Month Performance', 'Industrials')}
+                tr
+                  th Year-to-Date Performance
+                  td #{@sector.dig('Rank F: Year-to-Date (YTD) Performance', 'Industrials')}
+                tr
+                  th 1 Year Performance
+                  td #{@sector.dig('Rank G: 1 Year Performance', 'Industrials')}
+                tr
+                  th 3 Year Performance
+                  td #{@sector.dig('Rank H: 3 Year Performance', 'Industrials')}
+                tr
+                  th 5 Year Performance
+                  td #{@sector.dig('Rank I: 5 Year Performance', 'Industrials')}
+                tr
+                  th 10 Year Performance
+                  td #{@sector.dig('Rank J: 10 Year Performance', 'Industrials')}
+        div.row
+          div.card.col-md-4
+            div.card-body
+              h4.card-title Financials
+              table.table-striped.table-bordered
+                tr
+                  th Real Time Performance
+                  td #{@sector.dig('Rank A: Real-Time Performance', 'Financials')}
+                tr
+                  th 1 Day Performance
+                  td #{@sector.dig('Rank B: 1 Day Performance', 'Financials')}
+                tr
+                  th 5 Day Performance
+                  td #{@sector.dig('Rank C: 5 Day Performance', 'Financials')}
+                tr
+                  th 1 Month Performance
+                  td #{@sector.dig('Rank D: 1 Month Performance', 'Financials')}
+                tr
+                  th 3 Month Performance
+                  td #{@sector.dig('Rank E: 3 Month Performance', 'Financials')}
+                tr
+                  th Year-to-Date Performance
+                  td #{@sector.dig('Rank F: Year-to-Date (YTD) Performance', 'Financials')}
+                tr
+                  th 1 Year Performance
+                  td #{@sector.dig('Rank G: 1 Year Performance', 'Financials')}
+                tr
+                  th 3 Year Performance
+                  td #{@sector.dig('Rank H: 3 Year Performance', 'Financials')}
+                tr
+                  th 5 Year Performance
+                  td #{@sector.dig('Rank I: 5 Year Performance', 'Financials')}
+                tr
+                  th 10 Year Performance
+                  td #{@sector.dig('Rank J: 10 Year Performance', 'Financials')}
+          div.card.col-md-4
+            div.card-body
+              h4.card-title Energy
+              table.table-striped.table-bordered
+                tr
+                  th Real Time Performance
+                  td #{@sector.dig('Rank A: Real-Time Performance', 'Energy')}
+                tr
+                  th 1 Day Performance
+                  td #{@sector.dig('Rank B: 1 Day Performance', 'Energy')}
+                tr
+                  th 5 Day Performance
+                  td #{@sector.dig('Rank C: 5 Day Performance', 'Energy')}
+                tr
+                  th 1 Month Performance
+                  td #{@sector.dig('Rank D: 1 Month Performance', 'Energy')}
+                tr
+                  th 3 Month Performance
+                  td #{@sector.dig('Rank E: 3 Month Performance', 'Energy')}
+                tr
+                  th Year-to-Date Performance
+                  td #{@sector.dig('Rank F: Year-to-Date (YTD) Performance', 'Energy')}
+                tr
+                  th 1 Year Performance
+                  td #{@sector.dig('Rank G: 1 Year Performance', 'Energy')}
+                tr
+                  th 3 Year Performance
+                  td #{@sector.dig('Rank H: 3 Year Performance', 'Energy')}
+                tr
+                  th 5 Year Performance
+                  td #{@sector.dig('Rank I: 5 Year Performance', 'Energy')}
+                tr
+                  th 10 Year Performance
+                  td #{@sector.dig('Rank J: 10 Year Performance', 'Energy')}

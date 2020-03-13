@@ -1,0 +1,39 @@
+div.modal tabindex='-1' role='dialog' id='exampleModal'
+  div.modal-dialog role='document'
+    div.modal-content
+      div.modal-header
+        div.model-title
+          | #{@title}
+      div.modal-body
+        table.table.table-striped
+          tbody
+            tr
+              th 1 Day Performance:
+              td #{@one_day_performance}
+            tr
+              th 5 Day Performance:
+              td #{@five_day_performance}
+            tr
+              th 1 Month Performance:
+              td #{@one_month_performance}
+            tr
+              th 3 Month Performance:
+              td #{@three_month_performance}
+            tr
+              th Year-to-Date Performance:
+              td #{@ytd_performance}
+            tr
+              th 1 Year Performance:
+              td #{@one_year_performance}
+            tr
+              th 3 Year Performance:
+              td #{@three_year_performance}
+            tr
+              th 5 Year Performance:
+              td #{@five_year_performance}
+            tr
+              th 10 Year Performance:
+              td #{@ten_year_performance}
+      div.modal-footer
+        button.btn.btn-secondary type='button' data-dismiss='modal'
+          Close

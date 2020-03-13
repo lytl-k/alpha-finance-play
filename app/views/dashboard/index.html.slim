@@ -21,3 +21,10 @@ div.container
         h5.card-title Exchange Rates...
         p.card-text Check the Exchange Rate of your currency against any other currency here
         = link_to 'Check it out!', 'exchange_rates/index', class: 'btn btn-secondary mt-auto'
+
+    div.card.col-md-4
+      = image_tag 'sector_card.png', class: 'card-img-top'
+      div.card-body.d-flex.flex-column
+        h5.card-title Sectors...
+        p.card-text A little information on the S&P 500, and historical thereof
+        = link_to 'Check it out!', 'sectors/index', class: 'btn btn-secondary mt-auto'
