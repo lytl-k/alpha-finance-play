@@ -5,4 +5,5 @@ Rails.application.routes.draw do
   get 'markets/index',        to: 'markets#index'
   get 'exchange_rates/index', to: 'exchange_rates#index'
   get 'sectors/index',        to: 'sectors#index'
+  get 'stocks/index',         to: 'stocks#index'
 end

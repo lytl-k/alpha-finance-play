@@ -9,7 +9,7 @@ require("channels")
 require("chartkick")
 require("jquery")
 require("chart.js")
-require('../custom/markets')
+require('../custom/application')
 require("turbolinks").start()
 
 // Uncomment to copy all static images under ../images to the output folder and reference
