@@ -1,0 +1,2 @@
+module TechnicalIndicatorsHelper
+end

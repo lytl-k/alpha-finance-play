@@ -1,0 +1,94 @@
+div.container
+  h1 Technical Indicators
+  h4 Filters
+  div.row
+    = form_for :technical_indicator, method: :get, url: { action: :index } do |f|
+      div.dropdown
+        = label_tag :function, 'Series Over Time', class: "#{check_function_vars('function') ? '' : 'd-none'} col-md-4", id: 'function_label'
+        = select_tag :function, options_for_select(@functions, @selected_function), class: "#{check_function_vars('function') ? '' : 'd-none'} dropdown-toggle btn btn-secondary col-md-8", onchange:'selectIndicatorStuffs(this)', id: 'function'
+
+      div.dropdown id='interval-drop'
+        = label_tag :interval, 'Interval', class: "#{check_function_vars('interval') ? '' : 'd-none'} col-md-4", id: 'interval_label'
+        = select_tag :interval, options_for_select(@intervals, @selected_interval), class: "#{check_function_vars('interval') ? '' : 'd-none'} dropdown-toggle btn btn-secondary col-md-8", id: 'interval'
+
+      div.dropdown
+        = label_tag :symbol, 'Stock', class: "#{check_function_vars('symbol') ? '' : 'd-none'} col-md-4", id: 'symbol_label'
+        = select_tag :symbol, options_for_select(@stocks.map { |stock| [stock.name, stock.symbol] }, @selected_symbol), class: "#{check_function_vars('symbol') ? '' : 'd-none'} dropdown-toggle btn btn-secondary col-md-8", id: 'symbol'
+
+      div.dropdown
+        = label_tag :series_type, 'Time Series Type', class: "#{check_function_vars('series_type') ? '' : 'd-none'} col-md-4", id: 'series_type_label'
+        = select_tag :series_type, options_for_select(@series_types, @selected_series_type), class: "#{check_function_vars('series_type') ? '' : 'd-none'} dropdown-toggle btn btn-secondary col-md-8", id: 'series_type'
+
+      div.dropdown
+        = label_tag :matype, 'Moving Average', class: "#{check_function_vars('matype') ? '' : 'd-none'} col-md-4", id: 'matype_label'
+        = select_tag :matype, options_for_select(@moving_averages, @selected_matype), class: "#{check_function_vars('matype') ? '' : 'd-none'} dropdown-toggle btn btn-secondary col-md-8", id: 'matype'
+
+      div.dropdown
+        = label_tag :slowkmatype, 'SlowK Moving Average', class: "#{check_function_vars('slowkmatype') ? '' : 'd-none'} col-md-4", id: 'slowkmatype_label'
+        = select_tag :slowkmatype, options_for_select(@moving_averages, @selected_slowkmatype), class: "#{check_function_vars('slowkmatype') ? '' : 'd-none'} dropdown-toggle btn btn-secondary col-md-8", id: 'slowkmatype'
+
+      div.dropdown
+        = label_tag :slowdmatype, 'SlowD Moving Average', class: "#{check_function_vars('slowdmatype') ? '' : 'd-none'} col-md-4", id: 'slowdmatype_label'
+        = select_tag :slowdmatype, options_for_select(@moving_averages, @selected_slowdmatype), class: "#{check_function_vars('slowdmatype') ? '' : 'd-none'} dropdown-toggle btn btn-secondary col-md-8", id: 'slowdmatype'
+
+      div.dropdown
+        = label_tag :fastdmatype, 'FastD Moving Average', class: "#{check_function_vars('fastdmatype') ? '' : 'd-none'} col-md-4", id: 'fastdmatype_label'
+        = select_tag :fastdmatype, options_for_select(@moving_averages, @selected_fastdmatype), class: "#{check_function_vars('fastdmatype') ? '' : 'd-none'} dropdown-toggle btn btn-secondary col-md-8", id: 'fastdmatype'
+
+      = label_tag :time_period, 'Time period', id: 'time_period_label', class: "#{check_function_vars('time_period') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :time_period, @selected_time_period, :min=>0, :max=>365, class: "#{check_function_vars('time_period') ? '' : 'd-none'} col-md-8", id: 'time_period'
+
+      = label_tag :fastperiod, 'Fast Period', id: 'fastperiod_label', class: "#{check_function_vars('fastperiod') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :fastperiod, @selected_fastperiod, :min=>0, :max=>365, class: "#{check_function_vars('fastperiod') ? '' : 'd-none'} col-md-8", id: 'fastperiod'
+
+      = label_tag :slowperiod, 'Slow Period', id: 'slowperiod_label', class: "#{check_function_vars('slowperiod') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :slowperiod, @selected_slowperiod, :min=>0, :max=>365, class: "#{check_function_vars('slowperiod') ? '' : 'd-none'} col-md-8", id: 'slowperiod'
+
+      = label_tag :signalperiod, 'Signal Period', id: 'signalperiod_label', class: "#{check_function_vars('signalperiod') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :signalperiod, @selected_signalperiod, :min=>0, :max=>365, class: "#{check_function_vars('signalperiod') ? '' : 'd-none'} col-md-8", id: 'signalperiod'
+
+      = label_tag :fastkperiod, 'FastK Period', id: 'fastkperiod_label', class: "#{check_function_vars('fastkperiod') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :fastkperiod, @selected_fastkperiod, :min=>0, :max=>365, class: "#{check_function_vars('fastkperiod') ? '' : 'd-none'} col-md-8", id: 'fastkperiod'
+
+      = label_tag :slowkperiod, 'SlowK Period', id: 'slowkperiod_label', class: "#{check_function_vars('slowkperiod') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :slowkperiod, @selected_slowkperiod, :min=>0, :max=>365, class: "#{check_function_vars('slowkperiod') ? '' : 'd-none'} col-md-8", id: 'slowkperiod'
+
+      = label_tag :slowdperiod, 'SlowD Period', id: 'slowdperiod_label', class: "#{check_function_vars('slowdperiod') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :slowdperiod, @selected_slowdperiod, :min=>0, :max=>365, class: "#{check_function_vars('slowdperiod') ? '' : 'd-none'} col-md-8", id: 'slowdperiod'
+
+      = label_tag :fastdperiod, 'FastD Period', id: 'fastdperiod_label', class: "#{check_function_vars('fastdperiod') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :fastdperiod, @selected_fastdperiod, :min=>0, :max=>365, class: "#{check_function_vars('fastdperiod') ? '' : 'd-none'} col-md-8", id: 'fastdperiod'
+
+      = label_tag :timeperiod1, 'Time Period 1', id: 'timeperiod1_label', class: "#{check_function_vars('timeperiod1') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :timeperiod1, @selected_timeperiod1, :min=>0, :max=>365, class: "#{check_function_vars('timeperiod1') ? '' : 'd-none'} col-md-8", id: 'timeperiod1'
+
+      = label_tag :timeperiod2, 'Time Period 2', id: 'timeperiod2_label', class: "#{check_function_vars('timeperiod2') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :timeperiod2, @selected_timeperiod2, :min=>0, :max=>365, class: "#{check_function_vars('timeperiod2') ? '' : 'd-none'} col-md-8", id: 'timeperiod2'
+
+      = label_tag :timeperiod3, 'Time Period 3', id: 'timeperiod3_label', class: "#{check_function_vars('timeperiod3') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :timeperiod3, @selected_timeperiod3, :min=>0, :max=>365, class: "#{check_function_vars('timeperiod3') ? '' : 'd-none'} col-md-8", id: 'timeperiod3'
+
+      = label_tag :nbdevup, 'Upper Band Standard Deviation Multiplier', id: 'nbdevup_label', class: "#{check_function_vars('nbdevup') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :nbdevup, @selected_nbdevup, :min=>0, :max=>365, class: "#{check_function_vars('nbdevup') ? '' : 'd-none'} col-md-8", id: 'nbdevup'
+
+      = label_tag :nbdevdn, 'Lower Band Standard Deviation Multiplier', id: 'nbdevdn_label', class: "#{check_function_vars('nbdevdn') ? '' : 'd-none'} col-md-4"
+      = number_field_tag :nbdevdn, @selected_nbdevdn, :min=>0, :max=>365, class: "#{check_function_vars('nbdevdn') ? '' : 'd-none'} col-md-8", id: 'nbdevdn'
+
+      = label_tag :start_date, 'Start Date', class: 'col-md-4'
+      = text_field_tag :start_date, 'Start Date', data: { provide:'datepicker' }, type: :date, class: 'col-md-8'
+
+      = label_tag :end_date, 'End Date', class: 'col-md-4'
+      = text_field_tag :end_date, 'End Date', data: { provide:'datepicker' }, type: :date, class: 'col-md-8'
+
+      div.col-md-4
+        = f.submit 'Filter', class: 'btn btn-secondary'
+
+  br
+
+  h4 Market Over Time (#{@selected_to_symbol} per #{@selected_from_symbol})
+  div.row
+    div.col-md-12
+      - if @stock.empty?
+        div.alert.alert-danger No Time Series information on these Markets
+      - else
+        = line_chart @stock
