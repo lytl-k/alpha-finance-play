@@ -85,10 +85,10 @@ div.container
 
   br
 
-  h4 Market Over Time (#{@selected_to_symbol} per #{@selected_from_symbol})
+  h4 Tehnical Indicator for #{@selected_symbol}
   div.row
     div.col-md-12
       - if @stock.empty?
-        div.alert.alert-danger No Time Series information on these Markets
+        div.alert.alert-danger No Technical Indicator information on this stock
       - else
         = line_chart @stock
